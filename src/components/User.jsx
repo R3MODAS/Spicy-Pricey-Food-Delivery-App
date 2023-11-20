@@ -35,8 +35,6 @@ class User extends Component {
                     <h2 className="font-GrotBlack text-2xl md:text-4xl pt-5 pb-3 lg:pb-5">Purpose of Spicy Pricey 😉</h2>
                     <p className='font-GrotMed px-4 w-full lg:p-0 lg:w-[800px] text-base md:text-xl mx-auto'>Spicy Pricey is a place where you can get all sorts of Restaurants where you can order anything, anytime you desire 🔥. This works on Swiggy's Live Data so you will get all the features of the Food Ordering App 😁</p>
 
-                    <h2 className="font-GrotBlack text-xl md:text-3xl pt-5 pb-5 drop-shadow-2xl">This website is made by {this.props.creator} 🔥</h2>
-
                     <div className='mt-5 flex justify-center items-center gap-5 flex-col sm:flex-row'>
                         <div>
                             <img className='w-60 rounded-full' src={userImg} alt="img" />

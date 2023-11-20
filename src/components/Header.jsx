@@ -27,9 +27,9 @@ const Header = () => {
             <Link to="/">
               <img src={LOGO_URL} alt="logo" className="h-[60px] rounded-full border border-black" />
             </Link>
-            <div className="ml-2 sm:ml-4 cursor-pointer text-lg font-ProximaNovaBold text-black">
+            <Link to="/" className="ml-2 sm:ml-4 cursor-pointer text-lg font-ProximaNovaBold text-black">
               Spicy Pricey
-            </div>
+            </Link>
 
           </div>
 

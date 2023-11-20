@@ -16,15 +16,13 @@ const useRestaurantMenu = (resId, MENU_API) => {
                 throw new Error(err);
             } else {
                 const json = await response.json();
-                setResInfo(json?.data?.cards[0]?.card?.card?.info);
                 const RestaurantType = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-                const categories = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((item) => item?.card?.card["@type"] === RestaurantType)
-                setResMenuInfo(categories);
+                const RestaurantMenuData = json?.data?.cards?.find((x) => x?.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((item) => item?.card?.card["@type"] === RestaurantType);
+                setResInfo(json?.data?.cards[0]?.card?.card?.info);
+                setResMenuInfo(RestaurantMenuData);
             }
         } catch (err) {
             console.log(err);
-            setResMenuInfo([]);
-            setResInfo(null);
         }
 
     }

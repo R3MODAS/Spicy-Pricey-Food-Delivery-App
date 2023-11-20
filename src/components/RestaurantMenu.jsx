@@ -20,8 +20,6 @@ const RestaurantMenu = () => {
 
     const { name, city, cuisines, avgRating, totalRatingsString, isOpen } = ResInfo;
 
-
-
     if (ResMenuInfo?.length === 0) {
         return <ShimmerMenu />
     }
@@ -52,7 +50,7 @@ const RestaurantMenu = () => {
             {/* Restaurant Name */}
             <div className="flex items-start justify-between pt-5 mb-6">
                 <div>
-                    <h2 className="text-customcolor-6 text-xl capitalize mb-1 font-ProximaNovaSemiBold">{name}</h2>
+                    <h2 className="text-customcolor-6 sm:text-xl capitalize mb-1 font-ProximaNovaSemiBold">{name}</h2>
                     <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{cuisines?.join(", ")}</p>
                     <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{city}</p>
                 </div>

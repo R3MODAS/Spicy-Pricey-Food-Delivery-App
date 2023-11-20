@@ -161,7 +161,8 @@ const Home = () => {
                                 FilteredRestaurants?.map((res) => (
                                     <Link key={res?.info?.id} to={`/restaurants/${res?.info?.id}`} className="relative group">
                                         {
-                                            res?.info?.aggregatedDiscountInfoV3 ? <RestaurantCardwithOffer resInfo={res?.info} /> : <RestaurantCard resInfo={res?.info} />
+                                            
+                                            res?.info?.aggregatedDiscountInfoV3 || res?.info?.aggregatedDiscountInfoV2 ? <RestaurantCardwithOffer resInfo={res?.info} /> : <RestaurantCard resInfo={res?.info} />
                                         }
                                     </Link>
                                 ))

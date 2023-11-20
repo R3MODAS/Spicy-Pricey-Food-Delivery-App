@@ -46,12 +46,22 @@ export const RestaurantCardOffer = (RestaurantCard) => {
     return (props) => {
         const { resInfo } = props;
         const { isOpen } = resInfo;
-        const { header, subHeader } = resInfo?.aggregatedDiscountInfoV3
+        console.log(resInfo);
         return (
             <>
                 <RestaurantCard {...props} />
                 {
-                    isOpen && <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{header} {subHeader}</div> 
+                    isOpen &&
+                    <>
+                        {resInfo?.aggregatedDiscountInfoV2 &&
+
+                            <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{resInfo?.aggregatedDiscountInfoV2?.header}</div>
+                        }
+                        {resInfo?.aggregatedDiscountInfoV3 &&
+
+                            <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{resInfo?.aggregatedDiscountInfoV3?.header} {resInfo?.aggregatedDiscountInfoV3?.subHeader}</div>
+                        }
+                    </>
                 }
             </>
         )
