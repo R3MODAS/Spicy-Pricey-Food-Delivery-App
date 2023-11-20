@@ -63,12 +63,12 @@ const Header = () => {
         </nav>
       </header>
 
-      <div className={`h-screen w-full z-[99999999999] bg-white absolute top-0 ${ShowSidebar ? "left-0" : "-left-full"} right-0 transition-all duration-500`}>
+      <div className={`h-screen w-full z-[99999] bg-white fixed top-0 ${ShowSidebar ? "left-0" : "-left-full"} right-0 transition-all duration-500`}>
         <div className="text-3xl cursor-pointer absolute right-5 top-6" onClick={handleSidebar}>
           <IoMdCloseCircleOutline />
         </div>
 
-        <ul className="flex gap-16 items-center text-customblack-1 font-GrotBlack h-full w-full flex-col justify-center text-2xl">
+        <ul className="flex gap-16 items-center text-customblack-1 font-GrotBlack flex-col justify-center text-2xl h-full">
           <li onClick={handleNavItem} className="nav-items"><Link to="/">Home</Link></li>
           <li onClick={handleNavItem} className="nav-items"><Link to="/about">About</Link></li>
           <li onClick={handleNavItem} className="relative ml-10 nav-items">
