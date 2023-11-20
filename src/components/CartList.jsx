@@ -43,7 +43,7 @@ const CartList = (props) => {
                                             {
                                                 item?.card?.info?.imageId && <img src={MENU_IMG + item?.card?.info?.imageId} alt="menu-img" className="object-cover w-full h-full sm:w-[150px] sm:h-[96px] rounded-lg" />
                                             }
-                                            <button className="w-16 h-7 text-xs md:w-24 md:h-9 text-[#60b246] rounded addBtn font-ProximaNovaBold uppercase md:text-sm bg-white cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2" 
+                                            <button className="w-16 h-7 text-xs md:w-24 md:h-9 bg-red-500 text-white rounded addBtn font-ProximaNovaBold uppercase md:text-sm cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2" 
                                 onClick={() => handleDeleteItem(item)}>Remove</button>
                                         </div>
                                     </div>

@@ -23,7 +23,7 @@ const Cart = () => {
       {
         cartItems.length === 0 ? <CartList items={cartItems} /> : <>
           <h2 className="font-ProximaNovaBlack text-2xl md:text-3xl lg:text-4xl text-center mb-5">Welcome to Cart Page</h2>
-          <button className="bg-black text-white w-24 h-9 md:w-32 md:h-11 text-sm md:text-base font-ProximaNovaSemiBold block mx-auto mb-3"
+          <button className="bg-red-500 text-white w-24 h-9 md:w-32 md:h-11 text-sm md:text-base font-ProximaNovaSemiBold block mx-auto mb-3"
             onClick={handleClearCart}
           >Clear Cart</button>
           <CartList items={cartItems} />
