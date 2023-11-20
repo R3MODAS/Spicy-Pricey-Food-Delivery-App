@@ -2,7 +2,7 @@ import { useState } from "react"
 import RestaurantCard, { RestaurantCardOffer } from "../components/RestaurantCard";
 import { Link } from "react-router-dom";
 import ShimmerUi from "../components/ShimmerUi";
-import useRestaurant from "../Hooks/useRestaurant";
+import useRestaurant from "../hooks/useRestaurant";
 import { CATEGORY_IMG, IMG_CAROUSEL, RES_API } from "../utils/constants";
 
 
