@@ -46,7 +46,6 @@ export const RestaurantCardOffer = (RestaurantCard) => {
     return (props) => {
         const { resInfo } = props;
         const { isOpen } = resInfo;
-        console.log(resInfo);
         return (
             <>
                 <RestaurantCard {...props} />

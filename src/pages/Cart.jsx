@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux"
-import RestaurantMenuList from "../components/RestaurantMenuList";
 import CartList from "../components/CartList";
 import { clearCart } from "../utils/cartSlice";
 import toast, { Toaster } from "react-hot-toast";

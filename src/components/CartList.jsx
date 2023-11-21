@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MENU_IMG } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteItem } from '../utils/cartSlice';
 import toast, { Toaster } from 'react-hot-toast';
+import ItemPrice from './ItemPrice';
 
 const CartList = (props) => {
     const { items } = props;
     const dispatch = useDispatch();
+    const [TotalPrice, setTotalPrice] = useState(0);
 
     const handleDeleteItem = (item) => {
         dispatch(deleteItem(item?.card?.info?.id));
