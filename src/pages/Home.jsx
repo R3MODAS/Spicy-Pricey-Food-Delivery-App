@@ -80,7 +80,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container mx-auto pt-24 pb-28">
+        <div className="container mx-auto pt-24 pb-28 min-h-screen">
 
             {
                 FilteredRestaurants && AllRestaurants ?
