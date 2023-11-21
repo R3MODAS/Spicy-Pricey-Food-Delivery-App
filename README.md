@@ -1,24 +1,16 @@
 <div align="center" id="#readme-top">
 
-  <h3><b>Spicy Pricey Food Ordering App</b></h3>
+  <h1><b>Spicy Pricey Food Ordering App</b></h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Install](#install)
-  - [Deployment](#deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
+- [🛠 Built With](#built-with)
+- [Tech Stack](#tech-stack)
+- [Key Features](#key-features)
+- [🚀 Live Demo](#live-demo)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -54,11 +46,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Live Website Preview : <a href="https://spicy-pricey-food-delivery.vercel.app/" target="_blank">
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
-  </a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- Live Website Preview : <a href="https://spicy-pricey-food-delivery.vercel.app/" target="_blank">https://spicy-pricey-food-delivery.vercel.app/</a>
 
 ## ⭐️ Show your support <a name="support"></a>
 
