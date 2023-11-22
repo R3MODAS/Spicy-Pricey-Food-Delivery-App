@@ -80,7 +80,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container mx-auto pt-24 pb-28 min-h-screen">
+        <div className="container mx-auto pt-24 pb-32 min-h-screen">
 
             {
                 FilteredRestaurants && AllRestaurants ?
@@ -89,7 +89,7 @@ const Home = () => {
                         {
                             BannerInfo &&
                             (
-                                <>
+                                <div className="hidden sm:block">
                                     <h2 className="font-GrotBlack text-xl sm:text-2xl pt-5 pb-5">Best offers for you</h2>
 
                                     <div className="flex items-center gap-5">
@@ -101,7 +101,7 @@ const Home = () => {
                                             ))
                                         }
                                     </div>
-                                </>
+                                </div>
                             )
                         }
 
@@ -109,7 +109,7 @@ const Home = () => {
                         {
                             FoodCategories &&
                             (
-                                <div className="relative">
+                                <div className="relative sm:block hidden">
                                     <h2 className="font-GrotBlack text-xl sm:text-2xl pt-5 pb-5 text-left pl-4">What's on your mind?</h2>
 
                                     <div className="scroll-buttons absolute top-5 2xl:right-16 flex gap-2 right-4">

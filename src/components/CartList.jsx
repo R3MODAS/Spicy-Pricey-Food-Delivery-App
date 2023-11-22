@@ -45,7 +45,7 @@ const CartList = (props) => {
                             items?.map((item) => (
                                 <div key={item?.card?.info?.id} className="menuItem">
                                     <div className="flex justify-between pb-12 pt-6">
-                                        <div className="categoryLeft w-[600px]">
+                                        <div className="categoryLeft w-[50%] mr-2 sm:w-[600px] sm:mr-0">
                                             {
                                                 item?.card?.info?.isVeg ? <img src="/images/veg.png" alt="icon" /> :
                                                     <img src="/images/nonveg.png" alt="icon" />
@@ -57,11 +57,11 @@ const CartList = (props) => {
                                             }
 
                                         </div>
-                                        <div className="categoryRight w-[150px] h-[96px] relative">
+                                        <div className="categoryRight relative w-36 h-36 sm:w-[150px] sm:h-[96px]">
                                             {
                                                 item?.card?.info?.imageId && <img src={MENU_IMG + item?.card?.info?.imageId} alt="menu-img" className="object-cover w-full h-full sm:w-[150px] sm:h-[96px] rounded-lg" />
                                             }
-                                            <button className="w-16 h-7 text-xs md:w-24 md:h-9 bg-red-500 text-white rounded addBtn font-ProximaNovaBold uppercase md:text-sm cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2"
+                                            <button className="w-20 h-9 text-sm md:w-24 md:h-9 bg-red-500 text-white rounded addBtn font-ProximaNovaBold uppercase cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2"
                                                 onClick={() => handleDeleteItem(item)}>Remove</button>
                                         </div>
                                     </div>
