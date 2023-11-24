@@ -25,12 +25,13 @@ class User extends Component {
     }
 
     render() {
-        const {UserInfo} = this.state;
+        const { UserInfo } = this.state;
 
         const { name, avatar_url: userImg, html_url: link, location } = UserInfo;
 
         return (
             <div className='bg-[url("/images/aboutbg.jpg")] bg-cover w-full pt-24 pb-5'>
+
                 <div className='container mx-auto text-center text-white flex flex-col justify-center items-center min-h-screen custom-shadow'>
                     <h2 className="font-GrotBlack text-2xl md:text-4xl pt-5 pb-3 lg:pb-5">Purpose of Spicy Pricey 😉</h2>
                     <p className='font-GrotMed px-4 w-full lg:p-0 lg:w-[800px] text-base md:text-xl mx-auto'>Spicy Pricey is a place where you can get all sorts of Restaurants where you can order anything, anytime you desire 🔥. This works on Swiggy's Live Data so you will get all the features of the Food Ordering App 😁</p>

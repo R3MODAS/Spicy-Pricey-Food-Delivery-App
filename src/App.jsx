@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { useSelector } from "react-redux";
 import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
 import RestaurantMenu from "./components/RestaurantMenu";
 import LandingPage from "./components/LandingPage";
@@ -11,7 +10,6 @@ import About from "./pages/About";
 
 function App() {
   const UserLocation = useSelector((store) => store.locationData.userLocation);
-
   return (
     <>
     {
