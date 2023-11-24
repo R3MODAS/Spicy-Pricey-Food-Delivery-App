@@ -72,14 +72,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.modal {
+    transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
 
 .res-container {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     align-items: center;
 }
 
-.resoffer{
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+.resoffer {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .rupee {
@@ -227,7 +235,7 @@
 }
 
 .scroll-left,
-.scroll-right{
+.scroll-right {
     border-radius: 100%;
     height: 34px;
     padding: 8px 8px 4px;
@@ -236,6 +244,19 @@
     opacity: 0.5;
 }
 
-.custom-shadow{
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+.custom-shadow {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.landingpagebg {
+    background: url("/images/landingpage.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media (max-width:1024px) {
+    .text-shadow{
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+    }
 }

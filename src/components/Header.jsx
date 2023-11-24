@@ -1,39 +1,53 @@
 import { Link } from "react-router-dom"
 import { LOGO_URL } from "../utils/constants"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { useState } from "react";
+import { toggleMenu, toggleModal } from "../utils/toggleSlice";
+import { CiLocationOn } from "react-icons/ci";
 
 const Header = () => {
 
-  const cartItems = useSelector((store) => store.cart.items);
-  const [ShowSidebar, setShowSidebar] = useState(false);
+  const cartItems = useSelector((store) => store.cartData.items);
+  const UserLocation = useSelector((store) => store.locationData.userLocation);
+  const MenuOpen = useSelector((store) => store.toggleData.isOpen);
 
-  const handleSidebar = () => {
-    setShowSidebar(!ShowSidebar);
+  const dispatch = useDispatch();
+
+  const handleMenu = () => {
+    dispatch(toggleMenu());
   }
 
-  const handleNavItem = () => {
-    setShowSidebar(false);
+  const handleModal = () => {
+    dispatch(toggleModal());
   }
 
   return (
     <>
-
       <header className="p-3 shadow-lg fixed w-full z-10 bg-white h-[85px]">
         <nav className="container mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/">
               <img src={LOGO_URL} alt="logo" className="h-[60px] rounded-full border border-black" />
             </Link>
-            <Link to="/" className="ml-2 sm:ml-4 cursor-pointer text-lg font-ProximaNovaBold text-black">
+            <Link to="/" className="ml-4 cursor-pointer text-lg font-ProximaNovaBold text-black hidden xl:block">
               Spicy Pricey
             </Link>
+            {
+              UserLocation?.address && <button type="button" className="hidden xl:block text-sm ml-2 sm:ml-5 cursor-pointer text-[#686b78] font-ProximaNovaThin w-2/4 sm:w-auto text-center" onClick={handleModal}>{UserLocation?.address}</button>
+            }
+            {
+              UserLocation?.address && <button type="button" className="xl:hidden text-sm ml-2 sm:ml-5 cursor-pointer text-[#686b78] font-ProximaNovaThin text-center flex gap-1" onClick={handleModal}>
+                <div className="text-xl">
+                  <CiLocationOn />
+                </div>
+                Location
 
+              </button>
+            }
           </div>
 
-          <ul className="sm:flex gap-16 items-center text-customblack-1 font-GrotMed hidden">
+          <ul className="xl:flex gap-16 items-center text-customblack-1 font-GrotMed hidden">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li className="ml-6 relative">
@@ -56,22 +70,22 @@ const Header = () => {
             </li>
           </ul>
 
-          <div className="text-2xl cursor-pointer mr-1 sm:hidden" onClick={handleSidebar}>
+          <div className="text-2xl cursor-pointer mr-1 xl:hidden" onClick={handleMenu}>
             <MdOutlineRestaurantMenu />
           </div>
 
         </nav>
       </header>
 
-      <div className={`h-screen w-full z-[99999] bg-white fixed top-0 ${ShowSidebar ? "left-0" : "-left-full"} right-0 transition-all duration-500`}>
-        <div className="text-3xl cursor-pointer absolute right-5 top-6" onClick={handleSidebar}>
+      <div className={`h-screen w-full z-[99999] bg-white fixed top-0 ${MenuOpen ? "left-0" : "-left-full"} right-0 transition-all duration-500`}>
+        <div className="text-3xl cursor-pointer absolute right-5 top-6" onClick={handleMenu}>
           <IoMdCloseCircleOutline />
         </div>
 
         <ul className="flex gap-16 items-center text-customblack-1 font-GrotBlack flex-col justify-center text-2xl h-full">
-          <li onClick={handleNavItem} className="nav-items"><Link to="/">Home</Link></li>
-          <li onClick={handleNavItem} className="nav-items"><Link to="/about">About</Link></li>
-          <li onClick={handleNavItem} className="relative ml-10 nav-items">
+          <li onClick={handleMenu} className="nav-items"><Link to="/">Home</Link></li>
+          <li onClick={handleMenu} className="nav-items"><Link to="/about">About</Link></li>
+          <li onClick={handleMenu} className="relative ml-10 nav-items">
             <Link to="/cart">
               {
                 cartItems.length > 0 ? <>

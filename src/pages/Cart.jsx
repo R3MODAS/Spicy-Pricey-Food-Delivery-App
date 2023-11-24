@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
 
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store.cartData.items);
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
