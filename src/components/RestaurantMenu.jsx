@@ -4,11 +4,14 @@ import { Link, useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
+import { useSelector } from "react-redux";
+import Modal from "./Modal";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
     const [ResInfo, setResInfo, ResMenuInfo, setResMenuInfo] = useRestaurantMenu(resId, MENU_API);
     const [ShowIndex, setShowIndex] = useState(0);
+    const ModalOpen = useSelector((store) => store.toggleData.isModalOpen);
 
     const handleShowItem = (currInd) => {
         if(currInd === ShowIndex){
@@ -26,6 +29,10 @@ const RestaurantMenu = () => {
 
     return (
         <div className="2xl:w-6/12 mx-auto menu-container pt-28 pb-36 md:w-10/12 w-full px-3 min-h-screen">
+            {
+                ModalOpen && <Modal />
+            }
+
             {/* BreadCrumb */}
 
             <div className="flex mb-5" aria-label="Breadcrumb">
