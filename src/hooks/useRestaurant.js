@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from "react-redux";
 
-
-const useRestaurant = (RES_API) => {
+const useRestaurant = () => {
     const [AllRestaurants, setAllRestaurants] = useState([]);
     const [FilteredRestaurants, setFilteredRestaurants] = useState([]);
     const [BannerInfo, setBannerInfo] = useState([]);
     const [FoodCategories, setFoodCategories] = useState([]);
+    const UserLocation = useSelector((store) => store.locationData.userLocation);
 
     useEffect(() => {
         fetchRestaurants();
+
     }, [])
 
     const fetchRestaurants = async () => {
         try {
-            const response = await fetch(RES_API);
-            if (!response.ok) {
+                const {lat,lng} = UserLocation;
+                const response = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+                if (!response.ok) {
                 const err = response.status;
                 throw new Error(err);
             } else {
@@ -39,7 +42,7 @@ const useRestaurant = (RES_API) => {
 
     }
 
-    return [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories];
+    return [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories, Location];
 }
 
 export default useRestaurant

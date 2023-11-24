@@ -8,24 +8,6 @@ import toast, { Toaster } from 'react-hot-toast';
 const CartList = (props) => {
     const { items } = props;
     const dispatch = useDispatch();
-    const [TotalCost, setTotalCost] = useState(0);
-
-    useEffect(() => {
-
-        const updatedItemPrice = items?.map((card) => (
-            parseInt(
-                card?.card?.info?.price ?
-                    card?.card?.info?.price : card?.card?.info?.defaultPrice
-            ) / 100
-        ))
-
-        const TotalItemPrice = updatedItemPrice?.reduce((total, currPrice) => (
-            total + currPrice
-        ), 0)
-
-        setTotalCost(TotalItemPrice);
-
-    }, [])
 
     const handleDeleteItem = (item) => {
         dispatch(deleteItem(item?.card?.info?.id));
@@ -68,12 +50,6 @@ const CartList = (props) => {
                                 </div>
                             ))
                         }
-
-                        <div className='flex items-center justify-center flex-col sm:flex-row'>
-                            <h2 className='text-center bg-orange-500 text-white w-60 mt-5 font-ProximaNovaSemiBold text-lg flex items-center h-14  gap-3 justify-center'>Total Price : <span className='rupee'>{TotalCost}</span></h2>
-
-                            <button className='bg-black text-white h-14 w-60 mt-5 font-ProximaNovaMed text-lg'>Continue to Checkout</button>
-                        </div>
 
                     </> :
 
