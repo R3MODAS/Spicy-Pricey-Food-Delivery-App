@@ -13,8 +13,8 @@ const Home = () => {
     const [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories] = useRestaurant();
     const [SearchText, setSearchText] = useState("");
     const [ErrorMessage, setErrorMessage] = useState("");
+    const UserLocation = useSelector((store) => store.locationData.userLocation);
     const ModalOpen = useSelector((store) => store.toggleData.isModalOpen);
-
 
     const handleOffer = () => {
         setFilteredRestaurants(AllRestaurants.filter((res) => res.info.aggregatedDiscountInfoV3))
@@ -173,7 +173,7 @@ const Home = () => {
 
                             }
 
-                            <h2 className="font-GrotBlack text-xl sm:text-2xl pt-10 pb-5 text-center 2xl:text-left">Restaurants with online food delivery in Kanchrapara</h2>
+                            <h2 className="font-GrotBlack text-xl sm:text-2xl pt-10 pb-5 text-center 2xl:text-left">Restaurants with online food delivery in {UserLocation?.city}</h2>
 
                             <div className="buttons flex items-center justify-center 2xl:justify-between 2xl:pr-24 mb-5 font-GrotReg xl:flex-row flex-col gap-5 xl:gap-0">
                                 <div className="flex items-center gap-3 md:flex-nowrap flex-wrap md:justify-start justify-center">
