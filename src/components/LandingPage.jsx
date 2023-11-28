@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import useSearchLocation from "../hooks/useSearchLocation";
 import { ADDRESS_API, LOGO_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
@@ -8,6 +8,7 @@ import { CiLocationOn } from "react-icons/ci";
 const LandingPage = () => {
     const SearchText = useRef(null);
     const [searchData, setSearchData] = useState([]);
+    const [ChangingText, setChangingText] = useState("Unexpected guests?")
     const dispatch = useDispatch();
 
     const handleSearch = (searchQuery) => {
@@ -25,6 +26,7 @@ const LandingPage = () => {
                 const { data } = await res.json();
                 dispatch(
                     getLocation({
+                        city : data[0]?.address_components[0]?.short_name,
                         lat: data[0]?.geometry?.location?.lat,
                         lng: data[0]?.geometry?.location?.lng,
                         address: data[0]?.formatted_address
@@ -37,6 +39,28 @@ const LandingPage = () => {
         }
     }
 
+    useEffect(() => {
+
+       const timer =  setInterval(() => {
+            const texts = [
+                "Cooking gone wrong?",
+                "Game night?",
+                "Hungry?",
+                "Movie marathon?",
+                "Late night at office?",
+                "Unexpected guests?",
+              ];
+
+              const randomIndex = Math.floor(Math.random() * texts.length);
+              setChangingText(texts[randomIndex]);
+        }, 4000)
+
+        return () => {
+            clearInterval(timer);
+        }
+
+    }, [])
+
     return (
         <div className="pb-14">
             <div className="flex h-screen lg:flex-row flex-col pb-32 md:pb-0">
@@ -48,7 +72,7 @@ const LandingPage = () => {
                             <span className="cursor-pointer text-xl sm:text-2xl font-ProximaNovaBold">Spicey Pricey</span>
                         </div>
                         <div className="mt-10 mb-4 text-shadow">
-                            <h2 className="font-ProximaNovaSemiBold text-3xl text-white lg:text-[#282c3f]">Hungry?</h2>
+                            <h2 className="font-ProximaNovaSemiBold text-3xl text-white lg:text-[#282c3f]">{ChangingText}</h2>
                             <p className="font-ProximaNovaThin text-2xl text-white lg:text-[#686b78] mt-1">Order food from favourite restaurants near you.</p>
                         </div>
                         <div className="mt-7 relative">
