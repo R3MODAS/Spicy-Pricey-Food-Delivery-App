@@ -18,7 +18,8 @@ const useRestaurantMenu = (resId, MENU_API) => {
                 const json = await response.json();
                 const RestaurantType = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
                 const RestaurantMenuData = json?.data?.cards?.find((x) => x?.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((item) => item?.card?.card["@type"] === RestaurantType);
-                setResInfo(json?.data?.cards[0]?.card?.card?.info);
+                const Resinfo = json?.data?.cards.find(x => (x?.card?.card?.info))?.card?.card?.info
+                setResInfo(Resinfo);
                 setResMenuInfo(RestaurantMenuData);
             }
         } catch (err) {

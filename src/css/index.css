@@ -251,7 +251,7 @@ body.modal-active {
 .landingpagebg {
     background: url("/images/landingpage.webp");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
 }
 
 
