@@ -53,7 +53,7 @@ const LandingPage = () => {
 
               const randomIndex = Math.floor(Math.random() * texts.length);
               setChangingText(texts[randomIndex]);
-        }, 4000)
+        }, 3000)
 
         return () => {
             clearInterval(timer);
@@ -62,8 +62,7 @@ const LandingPage = () => {
     }, [])
 
     return (
-        <div className="pb-14">
-            <div className="flex h-screen lg:flex-row flex-col pb-32 md:pb-0">
+            <div className="flex lg:flex-row flex-col min-h-screen">
                 <div className="w-full lg:w-1/2 px-3 sm:px-16 2xl:px-28 py-32 relative">
                     <img src="/images/landingpage.webp" alt="img" className="absolute w-full top-0 left-0 right-0 bottom-0 h-screen object-cover blur-md lg:hidden block" />
                     <div className="2xl:w-4/5 relative">
@@ -109,7 +108,6 @@ const LandingPage = () => {
                 </div>
                 <div className="landingpagebg lg:w-1/2 hidden lg:block"></div>
             </div>
-        </div>
     )
 }
 
