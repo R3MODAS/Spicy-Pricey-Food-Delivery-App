@@ -62,9 +62,9 @@ const LandingPage = () => {
     }, [])
 
     return (
-            <div className="flex lg:flex-row flex-col min-h-screen">
+            <div className="flex lg:flex-row flex-col">
                 <div className="w-full lg:w-1/2 px-3 sm:px-16 2xl:px-28 py-32 relative">
-                    <img src="/images/landingpage.webp" alt="img" className="absolute w-full top-0 left-0 right-0 bottom-0 h-screen object-cover blur-md lg:hidden block" />
+                    <img src="/images/landingpage.webp" alt="img" className="absolute w-full top-0 left-0 right-0 bottom-0 h-full object-cover blur-md lg:hidden block" />
                     <div className="2xl:w-4/5 relative">
                         <div className="flex items-center gap-3 text-white lg:text-black text-shadow">
                             <img src={LOGO_URL} alt="img" className="h-[60px] rounded-full border border-black" />

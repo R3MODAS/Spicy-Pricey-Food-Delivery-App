@@ -101,7 +101,7 @@ const Home = () => {
             }
 
 
-            <div className="container mx-auto pt-24 pb-32 min-h-screen">
+            <div className="container mx-auto pt-24 pb-20 min-h-screen">
 
                 {
                     FilteredRestaurants && AllRestaurants ?

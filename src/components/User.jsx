@@ -30,7 +30,7 @@ class User extends Component {
         const { name, avatar_url: userImg, html_url: link, location } = UserInfo;
 
         return (
-            <div className='bg-[url("/images/aboutbg.jpg")] bg-cover w-full pt-24 pb-5'>
+            <div className='bg-[url("/images/aboutbg.jpg")] bg-cover w-full pt-24 bg-center'>
 
                 <div className='container mx-auto text-center text-white flex flex-col justify-center items-center min-h-screen custom-shadow'>
                     <h2 className="font-GrotBlack text-2xl md:text-4xl pt-5 pb-3 lg:pb-5">Purpose of Spicy Pricey 😉</h2>
