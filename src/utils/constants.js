@@ -1,8 +1,8 @@
-const CORSPROXY = "https://corsproxy.io/?";
+export const CORSPROXY = "https://erin-glamorous-earthworm.cyclic.app/api/proxy/swiggy/dapi/";
 
-export const LOCATION_API = `${CORSPROXY}https://www.swiggy.com/dapi/misc/place-autocomplete?input=`;
+export const LOCATION_API = `${CORSPROXY}misc/place-autocomplete?input=`;
 
-export const ADDRESS_API = `${CORSPROXY}https://www.swiggy.com/dapi/misc/address-recommend?place_id=`;
+export const ADDRESS_API = `${CORSPROXY}misc/address-recommend?place_id=`;
 
 export const IMG_CAROUSEL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/";
 
@@ -13,7 +13,7 @@ export const RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_l
 
 export const GRAY_RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,e_grayscale/";
 
-export const MENU_API = `${CORSPROXY}https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9747271&lng=88.43372099999999&restaurantId=`;
+export const MENU_API = `${CORSPROXY}menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9747271&lng=88.43372099999999&restaurantId=`;
 
 export const MENU_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
