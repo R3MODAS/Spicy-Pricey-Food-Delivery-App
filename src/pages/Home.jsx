@@ -7,7 +7,6 @@ import { CATEGORY_IMG, IMG_CAROUSEL } from "../utils/constants";
 import { useSelector } from "react-redux";
 import Modal from "../components/Modal";
 
-
 const Home = () => {
 
     const [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories] = useRestaurant();

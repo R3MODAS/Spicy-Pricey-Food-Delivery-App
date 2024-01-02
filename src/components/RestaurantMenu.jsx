@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { MENU_API } from "../utils/constants";
 import { Link, useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
 import ShimmerMenu from "./ShimmerMenu";
@@ -9,7 +8,7 @@ import Modal from "./Modal";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
-    const [ResInfo, setResInfo, ResMenuInfo, setResMenuInfo] = useRestaurantMenu(resId, MENU_API);
+    const [ResInfo, setResInfo, ResMenuInfo, setResMenuInfo] = useRestaurantMenu(resId);
     const [ShowIndex, setShowIndex] = useState(0);
     const ModalOpen = useSelector((store) => store.toggleData.isModalOpen);
 

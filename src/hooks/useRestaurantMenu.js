@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
+import { CORSPROXY } from '../utils/constants';
 
-const useRestaurantMenu = (resId, MENU_API) => {
+const useRestaurantMenu = (resId) => {
     const [ResInfo, setResInfo] = useState({});
     const [ResMenuInfo, setResMenuInfo] = useState([]);
+    const UserLocation = useSelector((store) => store.locationData.userLocation);
 
     useEffect(() => {
         fetchRestaurantMenu();
@@ -10,7 +13,8 @@ const useRestaurantMenu = (resId, MENU_API) => {
 
     const fetchRestaurantMenu = async () => {
         try {
-            const response = await fetch(MENU_API + resId);
+            const {lat,lng} = UserLocation;
+            const response = await fetch(`${CORSPROXY}https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`);
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err);
