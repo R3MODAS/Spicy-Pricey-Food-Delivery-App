@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import useSearchLocation from "../hooks/useSearchLocation";
-import { ADDRESS_API, LOGO_URL } from "../utils/constants";
+import { ADDRESS_API, CORSPROXY, LOGO_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { getLocation } from "../utils/locationSlice";
 import { CiLocationOn } from "react-icons/ci";
@@ -17,7 +17,7 @@ const LandingPage = () => {
 
     const fetchAddress = async (place_id) => {
         try {
-            const res = await fetch(ADDRESS_API + place_id);
+            const res = await fetch(CORSPROXY + encodeURIComponent(ADDRESS_API) + place_id);
             if (!res.ok) {
                 const error = res.status;
                 throw new Error(error);

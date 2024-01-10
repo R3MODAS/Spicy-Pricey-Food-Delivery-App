@@ -14,7 +14,8 @@ const useRestaurantMenu = (resId) => {
     const fetchRestaurantMenu = async () => {
         try {
             const {lat,lng} = UserLocation;
-            const response = await fetch(`${CORSPROXY}https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`);
+            const url = CORSPROXY + encodeURIComponent(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`)
+            const response = await fetch(url);
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err);

@@ -1,8 +1,8 @@
-export const CORSPROXY = "https://cors-anywhere.herokuapp.com/";
+export const CORSPROXY = "https://corsproxy.org/?";
 
-export const LOCATION_API = `${CORSPROXY}https://www.swiggy.com/dapi/misc/place-autocomplete?input=`;
+export const LOCATION_API = `https://www.swiggy.com/dapi/misc/place-autocomplete?input=`;
 
-export const ADDRESS_API = `${CORSPROXY}https://www.swiggy.com/dapi/misc/address-recommend?place_id=`;
+export const ADDRESS_API = `https://www.swiggy.com/dapi/misc/address-recommend?place_id=`;
 
 export const IMG_CAROUSEL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/";
 
