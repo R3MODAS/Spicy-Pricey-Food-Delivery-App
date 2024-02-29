@@ -1,49 +1,51 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { CORSPROXY } from '../utils/constants';
+import { CORSPROXY } from "../utils/constants";
 
 const useRestaurant = () => {
+    const [ImageCarousel, setImageCarousel] = useState([]);
+    const [TopChains, setTopChains] = useState([]);
     const [AllRestaurants, setAllRestaurants] = useState([]);
-    const [FilteredRestaurants, setFilteredRestaurants] = useState([]);
-    const [BannerInfo, setBannerInfo] = useState([]);
-    const [FoodCategories, setFoodCategories] = useState([]);
-    const UserLocation = useSelector((store) => store.locationData.userLocation);
+    const [FilteredRestaurants, setFilteredRestaurants] = useState([])
+    const userLocation = useSelector(store => store.location.userLocation);
+
+    const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
+    const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
+
+    const RES_API = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
 
     useEffect(() => {
-        fetchRestaurants();
+        fetchRestaurantData()
     }, [])
 
-    const fetchRestaurants = async () => {
+    const fetchRestaurantData = async () => {
         try {
-                const {lat,lng} = UserLocation;
-                const url = CORSPROXY + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
-                const response = await fetch(url);
-                if (!response.ok) {
+            const response = await fetch(CORSPROXY + encodeURIComponent(RES_API));
+            if (!response.ok) {
                 const err = response.status;
-                throw new Error(err);
-            } else {
-                const json = await response.json();
-                const CheckJsonStatus = async (jsonData) => {
-                    const ResData = jsonData?.data?.cards?.find((card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-                    const BannerData = jsonData?.data?.cards?.find((card) => card?.card?.card?.id === "topical_banner")?.card?.card?.gridElements?.infoWithStyle?.info;
-                    const CategoryData = jsonData?.data?.cards?.find((card) => card.card.card.id === "whats_on_your_mind")?.card?.card?.imageGridCards?.info;
-                    return [ResData, BannerData, CategoryData];
-                }
-                const [ResData, BannerData, CategoryData] = await CheckJsonStatus(json);
-                setAllRestaurants(ResData);
-                setFilteredRestaurants(ResData);
-                setBannerInfo(BannerData);
-                setFoodCategories(CategoryData);
+                throw new Error(err)
             }
+            else {
+                const json = await response.json();
 
+                const restaurants = json?.data?.cards?.find((x) => x?.card?.card?.id === "restaurant_grid_listing")?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
+                const imgCarousel = json?.data?.cards?.find(x => x?.card?.card?.id === "whats_on_your_mind")?.card?.card?.gridElements?.infoWithStyle?.info
+
+                const topChains = json?.data?.cards?.find(x => x?.card?.card?.id === "top_brands_for_you")?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
+                setImageCarousel(imgCarousel)
+                setTopChains(topChains)
+                setAllRestaurants(restaurants)
+                setFilteredRestaurants(restaurants)
+            }
         }
         catch (err) {
             console.log(err)
         }
-
     }
 
-    return [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories, Location];
+    return [ImageCarousel, setImageCarousel, TopChains, setTopChains, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants]
 }
 
 export default useRestaurant

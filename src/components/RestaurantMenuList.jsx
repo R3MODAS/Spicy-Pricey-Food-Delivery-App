@@ -1,65 +1,70 @@
-import { useDispatch, useSelector } from "react-redux";
-import { MENU_IMG } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
-import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
+import { RES_MENU_IMG } from '../utils/constants'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItem } from '../utils/cartSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
-const RestaurantMenuList = (props) => {
-    const { items } = props;
-    const dispatch = useDispatch();
-    const [currentId, setCurrentId] = useState("");
+const RestaurantMenuList = ({ items }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.cartItems)
+  const userDetails = useSelector(state => state.user.userDetails)
 
-    const handleAddItem = (item) => {
-        setCurrentId(item?.card?.info?.id);
-        if(currentId != item?.card?.info?.id){
-            dispatch(addItem(item))
-            toast.success('Added to the Cart', {
-                className : "font-ProximaNovaSemiBold",
-                position : "top-center",
-                duration : 1500
-            });
-        }
-        else{
-            toast.error('Already added to the Cart', {
-                className : "font-ProximaNovaSemiBold",
-                position : "top-center",
-                duration : 1500
-            });
-        }
+  const handleAddItem = (item) => {
+    const isItemInCart = cartItems.some((cartItem) => cartItem?.card?.info?.id === item?.card?.info?.id);
+
+    if (isItemInCart) {
+      if (userDetails) {
+        toast.error('Already added to the Cart');
+      }
+      else{
+        toast.error('Please Login first')
+      }
+    } else {
+      if (userDetails) {
+        toast.success('Added to the Cart');
+        dispatch(addItem(item));
+      }
+      else {
+        toast.error('Please Login first');
+      }
     }
+  };
 
-    return (
-        <>
-            {
-                items?.map((item) => (
-                    <div key={item?.card?.info?.id} className="menuItem">
-                        <div className="flex justify-between pb-12 pt-6">
-                            <div className="categoryLeft w-[50%] mr-2 sm:w-[600px] sm:mr-0">
-                                {
-                                    item?.card?.info?.isVeg ? <img src="/images/veg.png" alt="icon" /> :
-                                        <img src="/images/nonveg.png" alt="icon" />
-                                }
-                                <h3 className="text-base font-ProximaNovaMed">{item?.card?.info?.name}</h3>
-                                <span className="rupee font-ProximaNovaThin text-sm text-customblack-3">{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}</span>
-                                {
-                                    item?.card?.info?.description && <p className="md:w-full sm:w-9/12 mt-2 tracking-tight text-customcolor-4 text-sm">{item?.card?.info?.description}</p>
-                                }
 
-                            </div>
-                            <div className="categoryRight relative w-36 h-36 sm:w-[150px] sm:h-[96px]">
-                                {
-                                    item?.card?.info?.imageId && <img src={MENU_IMG + item?.card?.info?.imageId} alt="menu-img" className="object-cover w-full h-full sm:w-[150px] sm:h-[96px] rounded-lg" />
-                                }
-                                <button className="w-20 h-9 text-sm md:w-24 md:h-9 text-[#60b246] rounded addBtn font-ProximaNovaBold uppercase bg-white cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2" 
-                                onClick={() => handleAddItem(item)}>Add</button>
-                            </div>
-                        </div>
-                    </div>
-                ))
-            }
-            <Toaster />
-        </>
-    )
+  return (
+    <div className='accordion-body'>
+      {
+        items?.map((item) => (
+          <div key={item?.card?.info?.id} className='item flex items-start justify-between pb-8'>
+            <div className='md:w-auto w-3/5'>
+              {
+                item?.card?.info?.itemAttribute?.vegClassifier === 'VEG' ? <img src="/assets/veg.png" alt="veg" /> : <img src='/assets/nonveg.png' alt='non-veg'></img>
+              }
+              <h4 className='text-base text-color-9 font-ProximaNovaMed'>{item?.card?.info?.name}</h4>
+              {
+                item?.card?.info?.price ? <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.price / 100}</span> : <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.defaultPrice / 100}</span>
+              }
+              {
+                item?.card?.info?.description && <p className='text-color-10 mt-3 tracking-tight font-ProximaNovaThin text-sm md:w-3/4'>{item?.card?.info?.description}</p>
+              }
+            </div>
+            <div className='relative w-[118px] h-24'>
+              {
+                item?.card?.info?.imageId && <button className='cursor-pointer w-[118px] h-24 rounded-md'>
+                  <img src={`${RES_MENU_IMG}${item?.card?.info?.imageId}`} alt="menu-img" className='rounded-md w-[118px] h-24 object-cover' />
+                </button>
+              }
+              <button onClick={() => handleAddItem(item)} className='absolute -bottom-2 left-1/2 -translate-x-1/2 z-[1] w-24 h-9 shadow-md shadow-color-7 bg-white text-center inline-block rounded text-[#60b246] text-sm font-ProximaNovaSemiBold uppercase'>Add</button>
+            </div>
+          </div>
+        ))
+      }
+      <Toaster toastOptions={{
+        className: 'font-ProximaNovaSemiBold',
+        position: 'top-center',
+        duration: 1500,
+      }} />
+    </div>
+  )
 }
 
 export default RestaurantMenuList

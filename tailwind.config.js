@@ -7,14 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        "customblack-1": "rgba(2, 6, 12, 0.75)",
-        "customblack-2": "rgba(2, 6, 12, 0.6)",
-        "customblack-3": "#3e4152",
-        "customcolor-4": "rgba(40,44,63,.45)",
-        "customcolor-5": "#7e808c",
-        "customcolor-6": "#282c3f"
-
-      }
+        'color-1': '#282c3f',
+        'color-2':'#fc8019',
+        'color-3':'rgba(2, 6, 12, 0.75)',
+        'color-4':'rgba(2, 6, 12, 0.6)',
+        'color-5':'#93959f',
+        'color-6':'#535665',
+        'color-7':'#e9e9eb',
+        'color-8':'#7e808c',
+        'color-9':'#3e4152',
+        'color-10':'rgba(40, 44, 63, .45)',
+        'color-11':'#60b246'
+      },
     },
     fontFamily: {
       "GrotThin": ["Grotesque Pro Thin"],
@@ -30,7 +34,6 @@ export default {
     }
   },
   plugins: [
-    require('tailwind-scrollbar-hide'),
+    require('tailwind-scrollbar-hide')
   ],
 }
-

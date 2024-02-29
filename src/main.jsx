@@ -1,19 +1,40 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import "./css/index.css"
-import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
+import './css/index.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Checkout, Error, Home } from './pages'
+import RestaurantMenu from './components/RestaurantMenu'
+import { Suspense } from 'react'
+import ShimmerHome from './components/ShimmerHome'
 import { Provider } from 'react-redux'
-import appStore from './utils/appStore.js'
-import ScrolltoTop from './utils/ScrolltoTop.js'
+import store from './utils/store'
+import ShimmerMenu from './components/ShimmerMenu'
+import ProtectedRoute from './components/ProtectedRoute'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={appStore}>
-    <Router>
-      <React.StrictMode>
-        <ScrolltoTop />
-        <App />
-      </React.StrictMode>
-    </Router>
-  </Provider>
-)
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Suspense fallback={<ShimmerHome />}><Home /></Suspense>
+      },
+      {
+        path: "/checkout",
+        element: <ProtectedRoute><Checkout /></ProtectedRoute>
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <Suspense fallback={<ShimmerMenu />}><RestaurantMenu /></Suspense>
+      }
+    ],
+    errorElement: <Error />
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root'))
+  .render(
+    <Provider store={store}>
+      <RouterProvider router={appRouter} />
+    </Provider>)

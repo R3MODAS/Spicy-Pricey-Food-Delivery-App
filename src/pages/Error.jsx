@@ -1,4 +1,4 @@
-import { useRouteError, Link } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 
 const Error = () => {
     const {status, statusText, error} = useRouteError();
