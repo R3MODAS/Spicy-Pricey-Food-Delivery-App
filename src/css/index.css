@@ -165,7 +165,7 @@
 }
 
 .checkout-btns button{
-  @apply text-white font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg;
+  @apply font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg transition-all;
 }
 
 .popup-anim{

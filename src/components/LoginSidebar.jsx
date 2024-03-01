@@ -45,7 +45,7 @@ const LoginSidebar = () => {
 
   return (
     <>
-      <div className={`login-sidebar fixed top-0 right-0 h-full overflow-y-scroll bg-white transition-all duration-500 z-20 sm:px-20 px-10 py-5 w-full sm:py-10 flex flex-col sm:w-[500px] ${isLoginSidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`login-sidebar fixed top-0 right-0 h-full overflow-y-scroll bg-white transition-all duration-500 z-20 sm:px-20 px-5 py-5 w-full sm:py-10 flex flex-col sm:w-[500px] ${isLoginSidebarOpen ? "translate-x-0" : "translate-x-full"}`}>
         <button className='text-3xl mb-5' onClick={handleCloseSidebar}>
           <IoIosCloseCircleOutline />
         </button>

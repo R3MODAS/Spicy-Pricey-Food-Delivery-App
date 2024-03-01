@@ -137,7 +137,7 @@ const Home = () => {
         (AllRestaurants && AllRestaurants?.length != 0) &&
         <>
           <section id='restaurants'>
-            <h2 className='font-GrotBlack text-2xl pb-5 pt-5 2xl:text-start text-center'>Restaurants with online food delivery in {userLocation?.city ? userLocation?.city : "Kolkata"}</h2>
+            <h2 className='font-GrotBlack text-2xl pb-5 pt-5 2xl:text-start text-center sm:px-0 px-2'>Restaurants with online food delivery in {userLocation?.city ? userLocation?.city : "Kolkata"}</h2>
 
             <div className="filter-btns flex gap-3 2xl:justify-start justify-center md:flex-nowrap flex-wrap" onClick={handleActive}>
               <button className='filter-btn font-GrotMed text-color-3 text-sm tracking-tight' onClick={handleFastDelivery}>
