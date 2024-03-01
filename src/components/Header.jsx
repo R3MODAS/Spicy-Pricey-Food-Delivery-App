@@ -4,8 +4,6 @@ import { CiLocationOn } from "react-icons/ci";
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleLocationSidebar, toggleLoginSidebar } from '../utils/toggleSlice';
 import { LOGO_URL } from '../utils/constants';
-import { useState } from 'react';
-import { HiMenuAlt3 } from "react-icons/hi";
 
 const Header = () => {
     const dispatch = useDispatch()

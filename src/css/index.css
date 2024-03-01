@@ -167,3 +167,18 @@
 .checkout-btns button{
   @apply text-white font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg;
 }
+
+.popup-anim{
+    animation: 0.3s linear show-popup;
+}
+
+@keyframes show-popup {
+    from {
+        opacity: 0;
+        bottom: -50px;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

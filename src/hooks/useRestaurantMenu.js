@@ -3,8 +3,7 @@ import { useSelector } from "react-redux"
 import { CORSPROXY } from "../utils/constants";
 
 const useRestaurantMenu = (resId) => {
-    const [RestaurantInfo, setRestaurantInfo] = useState({});
-    const [RestaurantMenu, setRestaurantMenu] = useState([]);
+    const [RestaurantMenuDetails, setRestaurantMenuDetails] = useState([])
 
     const userLocation = useSelector(store => store.location.userLocation)
     const lat = userLocation?.lat ? userLocation?.lat : 22.51800
@@ -25,18 +24,18 @@ const useRestaurantMenu = (resId) => {
             }
             else {
                 const json = await response.json();
-                const RestaurantType = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-                const RestaurantMenuData = json?.data?.cards?.find((x) => x?.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((item) => item?.card?.card["@type"] === RestaurantType);
-                const RestaurantInfo = json?.data?.cards.find(x => (x?.card?.card?.info))?.card?.card?.info
-                setRestaurantInfo(RestaurantInfo)
-                setRestaurantMenu(RestaurantMenuData)
+                const ResInfo = json?.data?.cards?.find(card => card?.card?.card["@type"]?.includes("food.v2.Restaurant"))
+                const ResMenu = json?.data?.cards?.find(card => card?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(menu => menu?.card?.card["@type"]?.includes("food.v2.ItemCategory")
+                ))
+                setRestaurantMenuDetails({ResInfo, ResMenu})
             }
         } catch (err) {
             console.log(err)
+            setRestaurantMenuDetails(null)
         }
     }
 
-    return [RestaurantInfo, setRestaurantInfo, RestaurantMenu, setRestaurantMenu]
+    return RestaurantMenuDetails
 }
 
 export default useRestaurantMenu

@@ -3,9 +3,10 @@ import { Navigate } from "react-router-dom"
 const ProtectedRoute = ({children}) => {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"))
 
-    return (
-        userDetails?.token ? children : <Navigate to="/" />
-    )
+    if(!userDetails){
+        return <Navigate to="/" />
+    }
+    return children
 }
 
 export default ProtectedRoute
