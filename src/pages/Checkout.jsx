@@ -44,17 +44,16 @@ const Checkout = () => {
     }
     else {
       const order = ""
-
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount: (totalPrice + resInfo?.deliveryfee) * 100,
+        amount: resInfo?.deliveryfee ? (totalPrice + resInfo?.deliveryfee) * 100 : totalPrice * 100,
         currency: "INR",
         name: resInfo?.name,
         description: "Payment for the Meal",
         image: resInfo?.img,
         order_id: order.id,
         handler: (res) => {
-          if (true) {
+          if (res) {
             dispatch(clearCart())
           }
         },
@@ -70,7 +69,6 @@ const Checkout = () => {
           color: "#3399cc",
         },
       };
-
       const rzpay = new Razorpay(options);
       rzpay.open();
     }
@@ -96,9 +94,9 @@ const Checkout = () => {
                   <div>
                     <img src={resInfo?.img} alt="res-img" className='sm:w-auto w-20' />
                   </div>
-                  <div>
+                  <div className='tracking-tighter'>
                     <h2 className='font-ProximaNovaMed sm:text-2xl text-lg'>{resInfo?.name}</h2>
-                    <p className='font-ProximaNovaThin sm:text-base text-sm'>{resInfo?.place}</p>
+                    <p className='font-ProximaNovaThin sm:text-base text-sm -mt-1'>{resInfo?.place}</p>
                   </div>
                 </div>
                 {
@@ -127,13 +125,18 @@ const Checkout = () => {
                     </div>
                   ))
                 }
-                <div className="flex justify-between bg-color-11 text-white py-3 px-3 md:text-xl my-2">
+                <div className="flex justify-between bg-color-11 text-white py-2 sm:py-3 px-3 md:text-xl my-2 sm:flex-row flex-col sm:items-start items-center">
                   <div>
                     <h3 className="font-ProximaNovaSemiBold">Total Price:</h3>
                   </div>
-                  <div>
-                    <span className="rupee font-ProximaNovaSemiBold">{totalPrice + resInfo?.deliveryfee} (Charges Inc.)</span>
-                  </div>
+                  {
+                    resInfo?.deliveryfee ? <div>
+                      <span className="rupee font-ProximaNovaSemiBold">{totalPrice + resInfo?.deliveryfee} {`(${String(totalPrice)} + ${String(resInfo?.deliveryfee)})`}</span>
+                    </div> : <div>
+                      <span className="rupee font-ProximaNovaSemiBold">{totalPrice}</span>
+                    </div>
+                  }
+
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-2 checkout-btns">
                   <button onClick={handlePayment} className="bg-color-11 border border-color-11 text-white hover:bg-white hover:text-color-11">Place Order</button>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: "Grotesque Pro Thin";
     font-weight: 300;
@@ -67,10 +71,6 @@
     font-weight: 900;
     font-display: swap;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .sidebar-btn:hover .custom-underline::after {
     background-color: #fc8019;

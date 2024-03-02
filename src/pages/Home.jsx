@@ -68,7 +68,7 @@ const Home = () => {
   }
 
   return (
-    <div className="container mx-auto mt-24 mb-10 xl:px-0 md:px-2 px-0 overflow-x-hidden">
+    <div className="container mx-auto mt-24 mb-10 px-2 sm:px-10 overflow-x-hidden">
       {
         (ImageCarousel && ImageCarousel?.length != 0) &&
         <>
