@@ -16,7 +16,8 @@ const RestaurantMenu = () => {
     name: ResInfo?.card?.card?.info?.name,
     id: ResInfo?.card?.card?.info?.id,
     img: RES_CART_IMG + ResInfo?.card?.card?.info?.cloudinaryImageId,
-    place: ResInfo?.card?.card?.info?.areaName
+    place: ResInfo?.card?.card?.info?.areaName,
+    deliveryfee: ResInfo?.card?.card?.info?.feeDetails?.totalFee/100
   }
 
   const handleShowItem = (CurrentIndex) => {
@@ -45,7 +46,7 @@ const RestaurantMenu = () => {
                 ResMenu?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((category, index) => {
                   return category?.card?.card?.itemCards ? (
                     <li key={category?.card?.card?.title} className='cursor-pointer'>
-                      <RestaurantCategory {...category?.card?.card} ShowItem={index === ShowIndex && true} handleShowItem={() => handleShowItem(index)} ResInfoData={ResInfoData} />
+                      <RestaurantCategory {...category?.card?.card} ShowItem={index === ShowIndex ? true : false} handleShowItem={() => handleShowItem(index)} ResInfoData={ResInfoData} />
                     </li>
                   ) : null
                 })

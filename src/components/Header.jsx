@@ -61,28 +61,23 @@ const Header = () => {
                                 !userDetails ? <span className='md:inline hidden'>Sign In</span> : <span className='md:inline hidden'>{userDetails?.name}</span>
                             }
                         </button>
-                        {
-                            userDetails &&
-                            <>
-                                <Link to="/checkout" className='flex items-center gap-2 group hover:text-color-2'>
-                                    <div className='relative overflow-hidden font-ProximaNovaSemiBold'>
-                                        {
-                                            cartItems.length > 0 ?
-                                                <>
-                                                    <svg className="stroke-color-11 fill-color-11 stroke-2 group-hover:stroke-color-11" viewBox="-1 0 37 32" height="20" width="20"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
-                                                    <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm text-white'>{cartItems.length}</span>
-                                                </>
-                                                :
-                                                <>
-                                                    <svg className="stroke-color-1 fill-white stroke-2 group-hover:stroke-color-2" viewBox="-1 0 37 32" height="20" width="20"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
-                                                    <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm'>{cartItems.length}</span>
-                                                </>
-                                        }
-                                    </div>
-                                    <span className='md:inline hidden'>Cart</span>
-                                </Link>
-                            </>
-                        }
+                        <Link to="/checkout" className='flex items-center gap-2 group hover:text-color-2'>
+                            <div className='relative overflow-hidden font-ProximaNovaSemiBold'>
+                                {
+                                    cartItems.length > 0 ?
+                                        <>
+                                            <svg className="stroke-color-11 fill-color-11 stroke-2 group-hover:stroke-color-11" viewBox="-1 0 37 32" height="20" width="20"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
+                                            <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm text-white'>{cartItems.length}</span>
+                                        </>
+                                        :
+                                        <>
+                                            <svg className="stroke-color-1 fill-white stroke-2 group-hover:stroke-color-2" viewBox="-1 0 37 32" height="20" width="20"><path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path></svg>
+                                            <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm'>{cartItems.length}</span>
+                                        </>
+                                }
+                            </div>
+                            <span className='md:inline hidden'>Cart</span>
+                        </Link>
                     </ul>
                 </div>
             </header>

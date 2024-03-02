@@ -12,7 +12,6 @@ const RestaurantCategory = (props) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems)
   const resInfo = useSelector(state => state.cart.restaurant)
-  const userDetails = useSelector(state => state.user.userDetails)
 
   const handleAccordionBody = () => {
     handleShowItem();
@@ -22,7 +21,6 @@ const RestaurantCategory = (props) => {
     const isItemInCart = cartItems.some((cartItem) => cartItem?.info?.id === item?.card?.info?.id);
     const isSameRes = resInfo?.name === ResInfoData?.name;
 
-    if(userDetails){
       if(isItemInCart){
         toast.error('Already added to the Cart');
       }
@@ -36,10 +34,6 @@ const RestaurantCategory = (props) => {
           setShowPopup(true)
         }
       }
-    }
-    else{
-      toast.error('Please Login first');
-    }
   }
 
   return (

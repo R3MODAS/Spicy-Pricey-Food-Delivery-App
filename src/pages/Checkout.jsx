@@ -13,7 +13,6 @@ const Checkout = () => {
   const resInfo = useSelector(state => state.cart.restaurant)
   const userDetails = useSelector(state => state.user.userDetails)
   const totalPrice = cartItems.reduce((total, item) => total + (item?.info?.price / 100 || item?.info?.defaultPrice / 100), 0);
-  const {name, email} = userDetails
 
   const handleDeleteItem = (item) => {
     if (cartItems?.length > 1) {
@@ -40,38 +39,42 @@ const Checkout = () => {
   }
 
   const handlePayment = useCallback(() => {
-    const order = ""
-    
-    const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-      amount: totalPrice * 100,
-      currency: "INR",
-      name: resInfo?.name,
-      description: "Payment for the Meal",
-      image: resInfo?.img,
-      order_id: order.id,
-      handler: (res) => {
-        console.log(res);
-        if(true){
-          dispatch(clearCart())
-        }
-      },
-      prefill: {
-        name: name,
-        email: email,
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
+    if (!userDetails) {
+      toast.error("Login First")
+    }
+    else {
+      const order = ""
 
-    const rzpay = new Razorpay(options);
-    rzpay.open();
-  },[Razorpay])
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: (totalPrice + resInfo?.deliveryfee) * 100,
+        currency: "INR",
+        name: resInfo?.name,
+        description: "Payment for the Meal",
+        image: resInfo?.img,
+        order_id: order.id,
+        handler: (res) => {
+          if (true) {
+            dispatch(clearCart())
+          }
+        },
+        prefill: {
+          name: userDetails?.name,
+          email: userDetails?.email,
+          contact: "9999999999",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const rzpay = new Razorpay(options);
+      rzpay.open();
+    }
+  }, [Razorpay])
 
   return (
     <>
@@ -129,7 +132,7 @@ const Checkout = () => {
                     <h3 className="font-ProximaNovaSemiBold">Total Price:</h3>
                   </div>
                   <div>
-                    <span className="rupee font-ProximaNovaSemiBold">{totalPrice}</span>
+                    <span className="rupee font-ProximaNovaSemiBold">{totalPrice + resInfo?.deliveryfee} (Charges Inc.)</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-2 checkout-btns">
@@ -140,7 +143,11 @@ const Checkout = () => {
             </div>
           </>
       }
-      <Toaster />
+      <Toaster toastOptions={{
+        className: 'font-ProximaNovaSemiBold',
+        position: 'top-center',
+        duration: 1500,
+      }} />
 
     </>
 
