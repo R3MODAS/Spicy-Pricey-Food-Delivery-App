@@ -63,4 +63,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Thank you for using Foodie Express! If you have any questions or issues, feel free to open an [issue](https://github.com/R3MO/Spicy-Pricey-Food-Delivery-App/issues). Enjoy your delicious meals! 🍔🍕🍜
+Thank you for using Foodie Express! If you have any questions or issues, feel free to open an [issue](https://github.com/R3MODAS/Spicy-Pricey-Food-Delivery-App/issues). Enjoy your delicious meals! 🍔🍕🍜
