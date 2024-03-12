@@ -4,7 +4,7 @@ Welcome to Spicy Pricey, your go-to solution for convenient and delicious food d
 
 ## Hosted Link
 
-Check out the hosted version of Spicy Pricey at [https://R3MO.github.io/Spicy-Pricey-Food-Delivery-App](https://R3MO.github.io/Spicy-Pricey-Food-Delivery-App).
+Check out the hosted version of Spicy Pricey at [https://spicy-pricey-food-delivery.vercel.app](https://spicy-pricey-food-delivery.vercel.app).
 
 ## Features
 
