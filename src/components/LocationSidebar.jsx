@@ -17,7 +17,7 @@ const LocationSidebar = () => {
         try {
             setSearchText(e.target.value);
             if (SearchText.length >= 3) {
-                const response = await fetch(SEARCH_LOCATION_API + SearchText)
+                const response = await fetch(import.meta.env.VITE_BASE_URL + SEARCH_LOCATION_API + SearchText)
                 if (!response.ok) {
                     const err = response.status;
                     throw new err
@@ -34,7 +34,7 @@ const LocationSidebar = () => {
 
     const handleUserLocation = async (placeid) => {
         try {
-            const response = await fetch(ADDRESS_API + placeid)
+            const response = await fetch(import.meta.env.VITE_BASE_URL + ADDRESS_API + placeid)
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
