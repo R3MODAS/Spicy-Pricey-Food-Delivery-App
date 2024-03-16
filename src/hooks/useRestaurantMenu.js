@@ -8,15 +8,13 @@ const useRestaurantMenu = (resId) => {
     const lat = userLocation?.lat ? userLocation?.lat : 22.51800
     const lng = userLocation?.lng ? userLocation?.lng : 88.38320
 
-    const RES_MENU_API = `/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`
-
     useEffect(() => {
         fetchRestaurantMenu();
     }, [])
 
     const fetchRestaurantMenu = async () => {
         try {
-            const response = await fetch(RES_MENU_API)
+            const response = await fetch(`/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`)
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
