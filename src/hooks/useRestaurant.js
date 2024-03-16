@@ -17,7 +17,11 @@ const useRestaurant = () => {
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(`/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+            const response = await fetch(`/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`, {
+                headers: {
+                    "Content-Type": "application/json",
+                  }
+            });
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
