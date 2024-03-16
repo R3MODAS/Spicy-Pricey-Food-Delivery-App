@@ -1,8 +1,6 @@
-export const CORSPROXY = "https://corsproxy.org/?";
+export const SEARCH_LOCATION_API = "/dapi/misc/place-autocomplete?input="
 
-export const SEARCH_LOCATION_API = "https://www.swiggy.com/dapi/misc/place-autocomplete?input="
-
-export const ADDRESS_API = "https://www.swiggy.com/dapi/misc/address-recommend?place_id="
+export const ADDRESS_API = "/dapi/misc/address-recommend?place_id="
 
 export const IMG_CAROUSEL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/"
 

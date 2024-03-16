@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GoLocation } from 'react-icons/go'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { ADDRESS_API, CORSPROXY, SEARCH_LOCATION_API } from '../utils/constants'
+import { ADDRESS_API, SEARCH_LOCATION_API } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleLocationSidebar } from '../utils/toggleSlice'
 import { getLocation } from '../utils/locationSlice'
@@ -17,7 +17,7 @@ const LocationSidebar = () => {
         try {
             setSearchText(e.target.value);
             if (SearchText.length >= 3) {
-                const response = await fetch(CORSPROXY + encodeURIComponent(SEARCH_LOCATION_API) + SearchText)
+                const response = await fetch(SEARCH_LOCATION_API + SearchText)
                 if (!response.ok) {
                     const err = response.status;
                     throw new err
@@ -34,7 +34,7 @@ const LocationSidebar = () => {
 
     const handleUserLocation = async (placeid) => {
         try {
-            const response = await fetch(CORSPROXY + encodeURIComponent(ADDRESS_API) + placeid)
+            const response = await fetch(ADDRESS_API + placeid)
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
