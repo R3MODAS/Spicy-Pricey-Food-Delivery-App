@@ -11,15 +11,13 @@ const useRestaurant = () => {
     const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
     const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
 
-    const RES_API = `api/proxy/swiggy/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-
     useEffect(() => {
         fetchRestaurantData()
     }, [])
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(import.meta.env.VITE_BASE_URL + RES_API);
+            const response = await fetch(import.meta.env.VITE_BASE_URL + `api/proxy/swiggy/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
