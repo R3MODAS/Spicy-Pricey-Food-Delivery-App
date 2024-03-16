@@ -19,7 +19,7 @@ const useRestaurant = () => {
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(encodeURIComponent(RES_API));
+            const response = await fetch(RES_API);
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
