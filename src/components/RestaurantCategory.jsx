@@ -13,12 +13,14 @@ const RestaurantCategory = (props) => {
   const cartItems = useSelector(state => state.cart.cartItems)
   const resInfo = useSelector(state => state.cart.restaurant)
 
+  // console.log(cartItems)
+
   const handleAccordionBody = () => {
     handleShowItem();
   }
 
   const handleAddItem = (item) => {
-    const isItemInCart = cartItems.some((cartItem) => cartItem?.info?.id === item?.card?.info?.id);
+    const isItemInCart = cartItems.some((cartItem) => cartItem?.id === item?.card?.info?.id);
     const isSameRes = resInfo?.name === ResInfoData?.name;
 
       if(isItemInCart){
@@ -27,7 +29,7 @@ const RestaurantCategory = (props) => {
       else{
         if(isSameRes || Object.keys(resInfo).length === 0){
           toast.success('Added to the Cart');
-          dispatch(addItem({ ...item, ResInfoData }));
+          dispatch(addItem({ item: {...item?.card?.info}, ResInfoData }));
           setShowPopup(false)
         }
         else{
@@ -35,6 +37,7 @@ const RestaurantCategory = (props) => {
         }
       }
   }
+
 
   return (
     <>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { GoLocation } from 'react-icons/go'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { ADDRESS_API, SEARCH_LOCATION_API } from '../utils/constants'
+import { ADDRESS_API, SEARCH_LOCATION_API } from '../../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleLocationSidebar } from '../utils/toggleSlice'
-import { getLocation } from '../utils/locationSlice'
+import { toggleLocationSidebar } from '../../utils/toggleSlice'
+import { getLocation } from '../../utils/locationSlice'
 
 const LocationSidebar = () => {
     const [Locations, setLocations] = useState([])

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom"
 import Header from "./components/Header"
-import LocationSidebar from "./components/LocationSidebar"
+import LocationSidebar from "./components/Sidebar/LocationSidebar"
 import ScrollToTop from "./components/ScrollToTop"
-import LoginSidebar from "./components/LoginSidebar"
+import LoginSidebar from "./components/Sidebar/LoginSidebar"
 
 const App = () => {
   return (

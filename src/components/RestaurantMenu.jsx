@@ -1,7 +1,7 @@
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useRestaurantMenu from '../hooks/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
-import ShimmerMenu from "./ShimmerMenu"
+import ShimmerMenu from "./Shimmer/ShimmerMenu"
 import { useState } from 'react';
 import RestaurantInfo from './RestaurantInfo';
 import { RES_CART_IMG } from '../utils/constants';

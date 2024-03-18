@@ -8,19 +8,15 @@ const cartSlice = createSlice({
     },
     reducers: {
         addItem: (state, action) => {
-            const {card: newItem, ResInfoData: resInfo} = action.payload
-            const isItemInCart = state.cartItems.some(cartItem => cartItem?.info?.id === newItem?.card?.info?.id)
-
-            if (!isItemInCart) {
-                state.cartItems = [...state.cartItems, newItem]
-                state.restaurant = resInfo
-                localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
-                localStorage.setItem("restaurantInfo", JSON.stringify(state.restaurant))
-            }
+            const { item: newItem, ResInfoData: resInfo } = action.payload
+            state.cartItems = [...state.cartItems, newItem]
+            state.restaurant = resInfo
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
+            localStorage.setItem("restaurantInfo", JSON.stringify(state.restaurant))
         },
         deleteItem: (state, action) => {
             const itemId = action.payload;
-            state.cartItems = state.cartItems.filter(item => item?.info?.id !== itemId)
+            state.cartItems = state.cartItems.filter(item => item?.id !== itemId)
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
         clearCart: (state) => {

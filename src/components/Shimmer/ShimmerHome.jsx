@@ -1,4 +1,4 @@
-import "../css/shimmer.css"
+import "../../css/shimmer.css"
 
 const ShimmerHome = () => {
   return (

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { IoIosArrowDown, IoMdCloseCircleOutline } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleLocationSidebar, toggleLoginSidebar } from '../utils/toggleSlice';

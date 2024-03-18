@@ -1,6 +1,6 @@
 import { IMG_CAROUSEL } from '../utils/constants'
 import RestaurantCard, { withOfferLabel } from '../components/RestaurantCard';
-import ShimmerHome from '../components/ShimmerHome';
+import ShimmerHome from '../components/Shimmer/ShimmerHome';
 import { Link } from 'react-router-dom';
 import { IoClose } from "react-icons/io5";
 import useRestaurant from '../hooks/useRestaurant';

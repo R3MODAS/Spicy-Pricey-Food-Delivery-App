@@ -1,10 +1,10 @@
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleLoginSidebar } from '../utils/toggleSlice'
-import { auth, provider } from "../config/firebase.js"
+import { toggleLoginSidebar } from '../../utils/toggleSlice.js'
+import { auth, provider } from "../../config/firebase.js"
 import { signInWithPopup, signOut } from 'firebase/auth'
-import { addUser, removeUser } from '../utils/userAuthSlice.js'
-import { clearCart } from "../utils/cartSlice.js"
+import { addUser, removeUser } from '../../utils/userAuthSlice.js'
+import { clearCart } from "../../utils/cartSlice.js"
 
 const LoginSidebar = () => {
   const dispatch = useDispatch()

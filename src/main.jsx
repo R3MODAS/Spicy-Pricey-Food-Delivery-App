@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './css/index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Checkout, Error, Home } from './pages'
 import RestaurantMenu from './components/RestaurantMenu'
 import { Suspense } from 'react'
-import ShimmerHome from './components/ShimmerHome'
+import ShimmerHome from './components/Shimmer/ShimmerHome'
+import ShimmerMenu from './components/Shimmer/ShimmerMenu'
 import { Provider } from 'react-redux'
 import store from './utils/store'
-import ShimmerMenu from './components/ShimmerMenu'
+import './css/index.css'
 
 const appRouter = createBrowserRouter([
   {
