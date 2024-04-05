@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const RestaurantInfo = ({ResInfo}) => {
     const {city,name,cuisines,areaName,sla,avgRating,totalRatingsString,feeDetails } = ResInfo?.card?.card?.info
+
     return (
         <>
             <div className="flex" aria-label="Breadcrumb">
@@ -56,7 +57,7 @@ const RestaurantInfo = ({ResInfo}) => {
                 {
                     feeDetails?.message && <div className='flex justify-start items-center gap-2 text-color-8 mt-3 mb-5'>
                         <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_18,h_18/${feeDetails?.icon}`} alt="icon" />
-                        <p className='2xl:flex-1 text-sm font-ProximaNovaThin sm:w-1/2'>{feeDetails?.message}</p>
+                        <p className='2xl:flex-1 text-sm font-ProximaNovaThin sm:w-1/2' dangerouslySetInnerHTML={{__html : feeDetails?.message}} />
                     </div>
                 }
 

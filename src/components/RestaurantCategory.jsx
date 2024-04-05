@@ -13,7 +13,6 @@ const RestaurantCategory = (props) => {
   const cartItems = useSelector(state => state.cart.cartItems)
   const resInfo = useSelector(state => state.cart.restaurant)
 
-  // console.log(cartItems)
 
   const handleAccordionBody = () => {
     handleShowItem();
