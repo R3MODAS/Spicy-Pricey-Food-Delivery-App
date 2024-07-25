@@ -6,6 +6,9 @@ Welcome to Spicy Pricey, your go-to solution for convenient and delicious food d
 
 Check out the hosted version of Spicy Pricey at [https://spicy-pricey-food-delivery.vercel.app](https://spicy-pricey-food-delivery.vercel.app).
 
+## Swiggy Backend Api Cors Bypass
+I had to bypass the cors issue to use the swiggy api without any issues by just creating a proxy middleware [https://github.com/R3MODAS/Food-Delivery-Cors](https://github.com/R3MODAS/Food-Delivery-Cors)
+
 ## Features
 
 - **User Authentication**: Securely log in with Firebase authentication.
