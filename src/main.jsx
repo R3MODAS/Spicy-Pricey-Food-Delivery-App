@@ -4,10 +4,10 @@ import { Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { Checkout, Error, Home } from "@/pages";
-import ShimmerHome from "@/components/shimmer/ShimmerHome";
-import ShimmerMenu from "@/components/shimmer/ShimmerMenu";
 import RestaurantMenu from "@/components/menu/RestaurantMenu";
 import store from "@/utils/store";
+import ShimmerHome from "@/components/shimmer/ShimmerHome";
+import ShimmerMenu from "@/components/shimmer/ShimmerMenu";
 import "@/css/index.css";
 
 const appRouter = createBrowserRouter([
