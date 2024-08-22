@@ -157,7 +157,7 @@ const RestaurantSection = ({
                             </button>
                         </div>
 
-                        <div className="flex gap-8 flex-wrap mt-10 2xl:justify-start justify-center">
+                        <div className="flex gap-8 flex-wrap mt-10 justify-center">
                             {FilteredRestaurants?.map(res => (
                                 <Link
                                     className="relative transition-all hover:scale-95"
