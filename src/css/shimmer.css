@@ -1,6 +1,6 @@
 .carousel-loading {
     background-color: #171a29;
-    color: hsla(0, 0%, 100%, .8);
+    color: hsla(0, 0%, 100%, 0.8);
     text-align: center;
     padding: 0 20px;
 }
@@ -8,7 +8,12 @@
 .spinner {
     width: 80px;
     height: 80px;
-    background: linear-gradient(180deg, #ecebeb, hsla(0, 3%, 92%, .51) 53%, hsla(0, 3%, 92%, 0));
+    background: linear-gradient(
+        180deg,
+        #ecebeb,
+        hsla(0, 3%, 92%, 0.51) 53%,
+        hsla(0, 3%, 92%, 0)
+    );
     display: flex;
     align-items: center;
     border-radius: 50%;
@@ -20,11 +25,11 @@
 
 @keyframes rotate {
     0% {
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
 
     to {
-        transform: rotate(1turn)
+        transform: rotate(1turn);
     }
 }
 

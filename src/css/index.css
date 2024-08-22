@@ -93,7 +93,7 @@
     padding: 8px 8px 4px;
     background: rgb(226, 226, 231);
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .divider {
@@ -112,15 +112,19 @@
     padding: 8px 12px;
     width: auto;
     box-shadow: rgba(2, 6, 12, 0.04) 0px 2px 12px;
-    transition: background-color 0.1s ease-in 0s, border-color 0.1s ease-in 0s, box-shadow 0.1s ease-in 0s, width 0.2s cubic-bezier(0.65, 0, 0.35, 1) 0s;
+    transition:
+        background-color 0.1s ease-in 0s,
+        border-color 0.1s ease-in 0s,
+        box-shadow 0.1s ease-in 0s,
+        width 0.2s cubic-bezier(0.65, 0, 0.35, 1) 0s;
 }
 
-.filter-btn.active{
+.filter-btn.active {
     background-color: rgb(240, 240, 245);
     border: 1px solid rgb(54, 57, 62);
 }
 
-.filter-btn.active span{
+.filter-btn.active span {
     display: block;
 }
 
@@ -137,20 +141,20 @@
 
 .rupee:before {
     content: "\20B9";
-    margin-right: .1rem;
+    margin-right: 0.1rem;
 }
 
-.accordion-body .item{
-    border-bottom: .5px solid #d3d3d3;
+.accordion-body .item {
+    border-bottom: 0.5px solid #d3d3d3;
     margin: 20px 0;
 }
 
-.accordion-body .item:last-child{
+.accordion-body .item:last-child {
     border: none;
     margin: 0;
 }
 
-.label{
+.label {
     text-shadow: 1px 1px 2px black;
 }
 
@@ -164,11 +168,11 @@
     font-weight: 400;
 }
 
-.checkout-btns button{
-  @apply font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg transition-all;
+.checkout-btns button {
+    @apply font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg transition-all;
 }
 
-.popup-anim{
+.popup-anim {
     animation: 0.3s linear show-popup;
 }
 

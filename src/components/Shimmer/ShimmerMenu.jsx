@@ -1,5 +1,3 @@
-
-
 const ShimmerMenu = () => {
     return (
         <div>
@@ -11,8 +9,7 @@ const ShimmerMenu = () => {
                         <div className="bg-gray-400 animate w-[80px] h-[15px]"></div>
                     </div>
                     <div>
-                        <div className="p-[8px] cursor-pointer rounded bg-gray-400 animate w-[100px] h-[80px]">
-                        </div>
+                        <div className="p-[8px] cursor-pointer rounded bg-gray-400 animate w-[100px] h-[80px]"></div>
                     </div>
                 </div>
                 <ul className="mt-20">
@@ -89,7 +86,7 @@ const ShimmerMenu = () => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ShimmerMenu
+export default ShimmerMenu;
