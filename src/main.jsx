@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import { Checkout, Error, Home } from "@/pages";
 import RestaurantMenu from "@/components/menu/RestaurantMenu";
 import store from "@/utils/store";
-import ShimmerHome from "@/components/shimmer/ShimmerHome";
-import ShimmerMenu from "@/components/shimmer/ShimmerMenu";
+import ShimmerHome from "./components/shimmer/ShimmerHome";
+import ShimmerMenu from "./components/shimmer/ShimmerMenu";
 import "@/css/index.css";
 
 const appRouter = createBrowserRouter([
