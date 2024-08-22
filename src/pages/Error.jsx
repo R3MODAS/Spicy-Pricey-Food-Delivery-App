@@ -18,7 +18,7 @@ const Error = () => {
             ) : (
                 <>
                     <h2 className="text-3xl sm:text-3xl font-GrotBlack text-red-600">
-                        Oops, Something went wrong!
+                        Oops, Something went wrong while doing this operation
                     </h2>
                 </>
             )}
