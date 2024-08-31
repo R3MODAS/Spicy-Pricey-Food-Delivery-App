@@ -3,8 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
-        cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
-        restaurant: JSON.parse(localStorage.getItem("restaurantInfo")) || {},
+        cartItems: localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [],
+        restaurant: localStorage.getItem("restaurantInfo")
+            ? JSON.parse(localStorage.getItem("restaurantInfo"))
+            : {},
     },
     reducers: {
         addToCart: (state, action) => {
@@ -27,7 +31,6 @@ const cartSlice = createSlice({
                     state.cartItems[itemIndex].quantity = newQuantity;
                 } else {
                     state.cartItems.splice(itemIndex, 1);
-                    state.restaurant = {};
                 }
                 localStorage.setItem(
                     "cartItems",
